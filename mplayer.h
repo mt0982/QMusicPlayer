@@ -10,15 +10,18 @@ public:
     explicit MPlayer(QObject *parent = 0);
 
     Q_INVOKABLE int play();
+    Q_INVOKABLE void setPosition(qint64 position);
 
 private:
     QMediaPlayer *player;
 
 private slots:
     void durationChanged(qint64 duration);
+    void positionChanged(qint64 position);
 
 signals:
     void sendDuration(qint64 duration);
+    void sendPosition(qint64 position);
 };
 
 #endif // MPLAYER_H

@@ -13,9 +13,12 @@ ApplicationWindow {
     width: 480 * 0.6
     height: 800 * 0.6
 
+    signal sendSliderValue(int x)
+
     Connections {
         target: mplayer
-        onSendDuration: console.log(duration)
+        onSendDuration: sliderDuration.to = duration
+        onSendPosition: sliderDuration.value = position;
     }
 
     Image {
@@ -37,6 +40,7 @@ ApplicationWindow {
         anchors.top: cover.bottom
         anchors.topMargin: 10
         width: parent.width - 100
+        //onValueChanged: mplayer.setPosition(value)
     }
 
     Label {
@@ -114,8 +118,6 @@ ApplicationWindow {
     Label {
         id: title
         text: qsTr("<b>Counting Down The Days</b> <br>Natalie Imbruglia")
-        //anchors.top: sliderDuration.bottom
-        //anchors.topMargin: 25
         anchors.horizontalCenterOffset: 0
         font.family: "None Sans"
         font.pointSize: 10

@@ -7,6 +7,7 @@ MPlayer::MPlayer(QObject *parent): QObject(parent)
     player->setVolume(100);
 
     connect(player, SIGNAL(durationChanged(qint64)), this, SLOT(durationChanged(qint64)));
+    connect(player, SIGNAL(positionChanged(qint64)), this, SLOT(positionChanged(qint64)));
 }
 
 int MPlayer::play()
@@ -28,10 +29,20 @@ int MPlayer::play()
     return player->state();
 }
 
+void MPlayer::setPosition(qint64 position)
+{
+    player->setPosition(position);
+}
+
 void MPlayer::durationChanged(qint64 duration)
 {
     qDebug() << "MPlayer::durationChanged(qint64):" << duration;
     emit sendDuration(duration);
+}
+
+void MPlayer::positionChanged(qint64 position)
+{
+    emit sendPosition(position);
 }
 
 
