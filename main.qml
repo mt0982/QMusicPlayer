@@ -13,7 +13,10 @@ ApplicationWindow {
     width: 480 * 0.6
     height: 800 * 0.6
 
-    signal onButtonPlayStopClicked(string msg)
+    Connections {
+        target: mplayer
+        //on
+    }
 
     Image {
         id: cover
@@ -76,11 +79,21 @@ ApplicationWindow {
         anchors.bottomMargin: 10
         anchors.horizontalCenter: parent.horizontalCenter
         background: Image {
+            id: btnIcon
             anchors.fill: parent
             source: "qrc:/icon/play.png"
         }
         onClicked: {
-            mplayer.play()
+            switch (mplayer.play()) {
+            case 1:
+                btnIcon.source = "qrc:/icon/pause.png"
+                break;
+            case 2:
+                btnIcon.source = "qrc:/icon/play.png"
+                break;
+            default:
+                break;
+            }
         }
     }
 
