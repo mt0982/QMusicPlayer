@@ -79,8 +79,12 @@ ApplicationWindow {
 
     Label {
         id: title
-        y: 338
         text: qsTr("<b>Counting Down The Days</b> <br>Natalie Imbruglia")
+        anchors.top: sliderDuration.bottom
+        anchors.topMargin: 25
+        anchors.horizontalCenterOffset: 0
+        font.family: "None Sans"
+        font.pointSize: 10
         anchors.horizontalCenter: parent.horizontalCenter
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
