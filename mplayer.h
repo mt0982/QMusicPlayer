@@ -20,8 +20,8 @@ private slots:
     void positionChanged(qint64 position);
 
 signals:
-    void sendDuration(qint64 duration);
-    void sendPosition(qint64 position);
+    void sendDuration(qint64 duration, QString durationText);
+    void sendPosition(qint64 position, QString positionText);
 };
 
 #endif // MPLAYER_H

@@ -22,8 +22,12 @@ ApplicationWindow {
         onSendDuration: {
             maxDuration = duration;
             sliderDuration.to = duration;
+            maxTime.text = durationText;
         }
-        onSendPosition: sliderDuration.value = position;
+        onSendPosition: {
+            currentTime.text = positionText;
+            sliderDuration.value = position;
+        }
     }
 
     Image {
@@ -45,14 +49,16 @@ ApplicationWindow {
         anchors.top: cover.bottom
         anchors.topMargin: 25
         width: parent.width - 100
-        //onValueChanged: mplayer.setPosition(value)
         MouseArea {
             anchors.fill: parent
             onClicked: {
                 var percentage = ((mouseX * 100) / width) / 100;
                 mplayer.setPosition(percentage * maxDuration)
-                //console.log(width)
             }
+        }
+        onValueChanged: {
+            if (value === maxDuration)
+                btnIcon.source = "qrc:/icon/play.png"
         }
     }
 
@@ -65,7 +71,7 @@ ApplicationWindow {
     }
 
     Label {
-        id: durationTime
+        id: maxTime
         anchors.verticalCenter: sliderDuration.verticalCenter
         anchors.left: sliderDuration.right
         anchors.leftMargin: 10
