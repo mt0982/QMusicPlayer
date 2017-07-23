@@ -15,7 +15,7 @@ ApplicationWindow {
 
     Connections {
         target: mplayer
-        //on
+        onSendDuration: console.log("A")
     }
 
     Image {
