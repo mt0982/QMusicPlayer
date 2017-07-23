@@ -51,30 +51,43 @@ ApplicationWindow {
         id: btnPrevious
         x: 25
         y: 428
-        width: 40
-        height: 40
-        text: qsTr("<<")
+        width: 64
+        height: 64
+        anchors.right: btnPlayStop.left
+        anchors.rightMargin: 15
         anchors.verticalCenter: btnPlayStop.verticalCenter
+        background: Image {
+            anchors.fill: parent
+            source: "qrc:/icon/backward.png"
+        }
     }
 
     Button {
         id: btnPlayStop
-        x: 124
         y: 428
-        width: 40
-        height: 40
-        text: qsTr(">")
+        width: 80
+        height: 80
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 10
         anchors.horizontalCenter: parent.horizontalCenter
+        background: Image {
+            anchors.fill: parent
+            source: "qrc:/icon/play.png"
+        }
     }
 
     Button {
         id: btnNext
-        x: 215
         y: 428
-        width: 40
-        height: 40
-        text: qsTr(">>")
+        width: 64
+        height: 64
+        anchors.left: btnPlayStop.right
+        anchors.leftMargin: 15
         anchors.verticalCenter: btnPlayStop.verticalCenter
+        background: Image {
+            anchors.fill: parent
+            source: "qrc:/icon/forward.png"
+        }
     }
 
     Label {
