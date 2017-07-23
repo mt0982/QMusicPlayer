@@ -93,14 +93,15 @@ ApplicationWindow {
     Label {
         id: title
         text: qsTr("<b>Counting Down The Days</b> <br>Natalie Imbruglia")
-        anchors.top: sliderDuration.bottom
-        anchors.topMargin: 25
+        //anchors.top: sliderDuration.bottom
+        //anchors.topMargin: 25
         anchors.horizontalCenterOffset: 0
         font.family: "None Sans"
         font.pointSize: 10
         anchors.horizontalCenter: parent.horizontalCenter
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
+        y: Math.abs((sliderDuration.y + (sliderDuration.height / 2) + btnPlayStop.y) / 2)
     }
 }
 
