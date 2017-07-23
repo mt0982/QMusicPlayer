@@ -31,7 +31,7 @@ int MPlayer::play()
 void MPlayer::durationChanged(qint64 duration)
 {
     qDebug() << "MPlayer::durationChanged(qint64):" << duration;
-    sendDuration(duration);
+    emit sendDuration(duration);
 }
 
 

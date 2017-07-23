@@ -18,7 +18,7 @@ private slots:
     void durationChanged(qint64 duration);
 
 signals:
-    void sendDuration(qint64);
+    void sendDuration(qint64 duration);
 };
 
 #endif // MPLAYER_H
