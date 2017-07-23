@@ -15,9 +15,14 @@ ApplicationWindow {
 
     signal sendSliderValue(int x)
 
+    property var maxDuration
+
     Connections {
         target: mplayer
-        onSendDuration: sliderDuration.to = duration
+        onSendDuration: {
+            maxDuration = duration;
+            sliderDuration.to = duration;
+        }
         onSendPosition: sliderDuration.value = position;
     }
 
@@ -34,13 +39,21 @@ ApplicationWindow {
         fillMode: Image.PreserveAspectCrop
     }
 
-    Slider {
+    ProgressBar {
         id: sliderDuration
         anchors.horizontalCenter: cover.horizontalCenter
         anchors.top: cover.bottom
-        anchors.topMargin: 10
+        anchors.topMargin: 25
         width: parent.width - 100
         //onValueChanged: mplayer.setPosition(value)
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                var percentage = ((mouseX * 100) / width) / 100;
+                mplayer.setPosition(percentage * maxDuration)
+                //console.log(width)
+            }
+        }
     }
 
     Label {
