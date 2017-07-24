@@ -4,11 +4,31 @@ import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
 import QtQuick.Layouts 1.0
 
+//http://doc.qt.io/qt-4.8/qtbinding.html#receiving-signals
+//https://s-media-cache-ak0.pinimg.com/originals/c2/af/95/c2af951ba1ce42d5b536cd98ef3f8303.png
+
 ApplicationWindow {
     id: applicationWindow
     visible: true
     width: 480 * 0.6
     height: 800 * 0.6
+
+    signal sendSliderValue(int x)
+
+    property var maxDuration
+
+    Connections {
+        target: mplayer
+        onSendDuration: {
+            maxDuration = duration;
+            sliderDuration.to = duration;
+            maxTime.text = durationText;
+        }
+        onSendPosition: {
+            currentTime.text = positionText;
+            sliderDuration.value = position;
+        }
+    }
 
     Image {
         id: cover
@@ -23,12 +43,23 @@ ApplicationWindow {
         fillMode: Image.PreserveAspectCrop
     }
 
-    Slider {
+    ProgressBar {
         id: sliderDuration
         anchors.horizontalCenter: cover.horizontalCenter
         anchors.top: cover.bottom
-        anchors.topMargin: 10
+        anchors.topMargin: 25
         width: parent.width - 100
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                var percentage = ((mouseX * 100) / width) / 100;
+                mplayer.setPosition(percentage * maxDuration)
+            }
+        }
+        onValueChanged: {
+            if (value === maxDuration)
+                btnIcon.source = "qrc:/icon/play.png"
+        }
     }
 
     Label {
@@ -40,7 +71,7 @@ ApplicationWindow {
     }
 
     Label {
-        id: durationTime
+        id: maxTime
         anchors.verticalCenter: sliderDuration.verticalCenter
         anchors.left: sliderDuration.right
         anchors.leftMargin: 10
@@ -71,8 +102,21 @@ ApplicationWindow {
         anchors.bottomMargin: 10
         anchors.horizontalCenter: parent.horizontalCenter
         background: Image {
+            id: btnIcon
             anchors.fill: parent
             source: "qrc:/icon/play.png"
+        }
+        onClicked: {
+            switch (mplayer.play()) {
+            case 1:
+                btnIcon.source = "qrc:/icon/pause.png"
+                break;
+            case 2:
+                btnIcon.source = "qrc:/icon/play.png"
+                break;
+            default:
+                break;
+            }
         }
     }
 
@@ -93,8 +137,6 @@ ApplicationWindow {
     Label {
         id: title
         text: qsTr("<b>Counting Down The Days</b> <br>Natalie Imbruglia")
-        //anchors.top: sliderDuration.bottom
-        //anchors.topMargin: 25
         anchors.horizontalCenterOffset: 0
         font.family: "None Sans"
         font.pointSize: 10
