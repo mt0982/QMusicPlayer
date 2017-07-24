@@ -18,12 +18,10 @@ ApplicationWindow {
 
     signal sendSliderValue(int x)
 
-    property var maxDuration
-
     Connections {
         target: mplayer
         onSendDuration: {
-            maxDuration = duration;
+            pageMusic.maxDuration = duration;
             pageMusic.sliderDuration.to = duration;
             pageMusic.maxTime.text = durationText;
         }

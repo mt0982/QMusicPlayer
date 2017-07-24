@@ -6,6 +6,7 @@ Item {
     property alias sliderDuration: sliderDuration
     property alias currentTime: currentTime
     property alias maxTime: maxTime
+    property int maxDuration
 
     ProgressBar {
         id: sliderDuration
@@ -31,7 +32,6 @@ Item {
         anchors.verticalCenter: sliderDuration.verticalCenter
         anchors.right: sliderDuration.left
         anchors.rightMargin: 10
-        text: "0:10"
     }
 
     Label {
@@ -39,7 +39,6 @@ Item {
         anchors.verticalCenter: sliderDuration.verticalCenter
         anchors.left: sliderDuration.right
         anchors.leftMargin: 10
-        text: "4:17"
     }
 
     Button {
