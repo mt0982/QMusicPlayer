@@ -17,13 +17,10 @@ Item {
             sourceChecked: "qrc:/icon/music_checked.png"
             sourceUnchecked: "qrc:/icon/music_unchecked.png"
         }
+
         AbstractTabBarButton {
-            sourceChecked: "qrc:/icon/music_checked.png"
-            sourceUnchecked: "qrc:/icon/music_unchecked.png"
-        }
-        AbstractTabBarButton {
-            sourceChecked: "qrc:/icon/music_checked.png"
-            sourceUnchecked: "qrc:/icon/music_unchecked.png"
+            sourceChecked: "qrc:/icon/playlist_checked.png"
+            sourceUnchecked: "qrc:/icon/playlist_unchecked.png"
         }
     }
 }
