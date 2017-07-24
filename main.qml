@@ -157,21 +157,81 @@ ApplicationWindow {
         }
 
         TabButton {
-            text: "A"
             width: parent.height
             height: parent.height
+
+            background: Rectangle {
+                opacity: parent.checked ? 0.6 : 0
+                gradient: Gradient {
+                    GradientStop {
+                        position: 0.00;
+                        color: "transparent";
+                    }
+                    GradientStop {
+                        position: 1.00;
+                        color: "#f55b47";
+                    }
+                }
+
+                Rectangle {
+                    anchors.bottom: parent.bottom
+                    width: parent.width
+                    height: 3
+                    color: "#f55b47";
+                }
+            }
         }
 
         TabButton {
-            text: "A"
             width: parent.height
             height: parent.height
+
+            background: Rectangle {
+                opacity: parent.checked ? 0.6 : 0
+                gradient: Gradient {
+                    GradientStop {
+                        position: 0.00;
+                        color: "transparent";
+                    }
+                    GradientStop {
+                        position: 1.00;
+                        color: "#f55b47";
+                    }
+                }
+
+                Rectangle {
+                    anchors.bottom: parent.bottom
+                    width: parent.width
+                    height: 3
+                    color: "#f55b47";
+                }
+            }
         }
 
         TabButton {
-            text: "B"
             width: parent.height
             height: parent.height
+
+            background: Rectangle {
+                opacity: parent.checked ? 0.6 : 0
+                gradient: Gradient {
+                    GradientStop {
+                        position: 0.00;
+                        color: "transparent";
+                    }
+                    GradientStop {
+                        position: 1.00;
+                        color: "#f55b47";
+                    }
+                }
+
+                Rectangle {
+                    anchors.bottom: parent.bottom
+                    width: parent.width
+                    height: 3
+                    color: "#f55b47";
+                }
+            }
         }
     }
 }
