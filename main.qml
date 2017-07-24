@@ -180,6 +180,14 @@ ApplicationWindow {
                     color: "#f55b47";
                 }
             }
+
+            Image {
+                anchors.centerIn: parent
+                width: parent.width * 0.5
+                height: parent.height * 0.5
+                source: parent.checked ? "qrc:/icon/music_checked.png" : "qrc:/icon/music_unchecked.png"
+                onSourceChanged: console.log(source)
+            }
         }
 
         TabButton {
