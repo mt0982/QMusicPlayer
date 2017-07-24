@@ -4,6 +4,8 @@ import "../abstract"
 
 Item {
 
+    property int currentIndex: bar.currentIndex
+
     TabBar {
         id: bar
         anchors.horizontalCenter: parent.horizontalCenter
@@ -24,3 +26,11 @@ Item {
         }
     }
 }
+
+
+
+
+
+
+
+
