@@ -18,6 +18,8 @@ ApplicationWindow {
 
     signal sendSliderValue(int x)
 
+    property bool heightFlag: true
+
     Connections {
         target: mplayer
         onSendDuration: {
@@ -36,7 +38,7 @@ ApplicationWindow {
 
     Image {
         id: cover
-        height: parent.height * 0.55
+        height: (heightFlag) ? parent.height * 0.55 : parent.height * 0.3
         anchors.right: parent.right
         anchors.rightMargin: 0
         anchors.left: parent.left
@@ -76,8 +78,8 @@ ApplicationWindow {
         }
 
         onCurrentIndexChanged: {
-            if (bar.currentIndex == 1) cover.height = applicationWindow.height * 0.3;
-            else cover.height = applicationWindow.height * 0.55;
+            if (!currentIndex) heightFlag = true;
+            else if (currentIndex == 1) heightFlag = false;
         }
     }
 }
