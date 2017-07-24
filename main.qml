@@ -3,6 +3,7 @@ import QtQuick.Window 2.2
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
 import QtQuick.Layouts 1.0
+import "component"
 
 //http://doc.qt.io/qt-4.8/qtbinding.html#receiving-signals
 //https://s-media-cache-ak0.pinimg.com/originals/c2/af/95/c2af951ba1ce42d5b536cd98ef3f8303.png
@@ -146,102 +147,11 @@ ApplicationWindow {
         y: Math.abs((sliderDuration.y + (sliderDuration.height / 2) + btnPlayStop.y) / 2)
     }
 
-
-    TabBar {
-        id: bar
+    TabBarOption {
         anchors.horizontalCenter: cover.horizontalCenter
         anchors.bottom: cover.bottom
-        background: Rectangle {
-            anchors.fill: parent
-            color: "transparent"
-        }
-
-        TabButton {
-            width: parent.height
-            height: parent.height
-
-            background: Rectangle {
-                opacity: parent.checked ? 0.6 : 0
-                gradient: Gradient {
-                    GradientStop {
-                        position: 0.00;
-                        color: "transparent";
-                    }
-                    GradientStop {
-                        position: 1.00;
-                        color: "#f55b47";
-                    }
-                }
-
-                Rectangle {
-                    anchors.bottom: parent.bottom
-                    width: parent.width
-                    height: 3
-                    color: "#f55b47";
-                }
-            }
-
-            Image {
-                anchors.centerIn: parent
-                width: parent.width * 0.5
-                height: parent.height * 0.5
-                source: parent.checked ? "qrc:/icon/music_checked.png" : "qrc:/icon/music_unchecked.png"
-                onSourceChanged: console.log(source)
-            }
-        }
-
-        TabButton {
-            width: parent.height
-            height: parent.height
-
-            background: Rectangle {
-                opacity: parent.checked ? 0.6 : 0
-                gradient: Gradient {
-                    GradientStop {
-                        position: 0.00;
-                        color: "transparent";
-                    }
-                    GradientStop {
-                        position: 1.00;
-                        color: "#f55b47";
-                    }
-                }
-
-                Rectangle {
-                    anchors.bottom: parent.bottom
-                    width: parent.width
-                    height: 3
-                    color: "#f55b47";
-                }
-            }
-        }
-
-        TabButton {
-            width: parent.height
-            height: parent.height
-
-            background: Rectangle {
-                opacity: parent.checked ? 0.6 : 0
-                gradient: Gradient {
-                    GradientStop {
-                        position: 0.00;
-                        color: "transparent";
-                    }
-                    GradientStop {
-                        position: 1.00;
-                        color: "#f55b47";
-                    }
-                }
-
-                Rectangle {
-                    anchors.bottom: parent.bottom
-                    width: parent.width
-                    height: 3
-                    color: "#f55b47";
-                }
-            }
-        }
     }
+
 }
 
 
