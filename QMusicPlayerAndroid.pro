@@ -4,8 +4,12 @@ QT += qml quick quickcontrols2 multimedia multimediawidgets
 CONFIG += c++11
 
 SOURCES += main.cpp \
+<<<<<<< HEAD
     mplayer.cpp \
     mplaylist.cpp
+=======
+    mplayer.cpp
+>>>>>>> cpp_qml_communication
 
 RESOURCES += qml.qrc
 
@@ -32,5 +36,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+<<<<<<< HEAD
     mplayer.h \
     mplaylist.h
+=======
+    mplayer.h
+>>>>>>> cpp_qml_communication
