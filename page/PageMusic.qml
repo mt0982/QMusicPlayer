@@ -55,6 +55,7 @@ Item {
             anchors.fill: parent
             source: "qrc:/icon/backward.png"
         }
+        onClicked: mplayer.backward()
     }
 
     Button {
@@ -96,6 +97,7 @@ Item {
             anchors.fill: parent
             source: "qrc:/icon/forward.png"
         }
+        onClicked: mplayer.forward()
     }
 
     Label {

@@ -56,6 +56,16 @@ QStringList MPlayer::absolutePaths()
     return playlist.getAbsolutePaths();
 }
 
+void MPlayer::forward()
+{
+    player->playlist()->next();
+}
+
+void MPlayer::backward()
+{
+    player->playlist()->previous();
+}
+
 void MPlayer::durationChanged(qint64 duration)
 {
     qDebug() << "MPlayer::durationChanged(qint64):" << duration;

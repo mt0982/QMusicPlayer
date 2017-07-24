@@ -15,6 +15,8 @@ public:
     Q_INVOKABLE void setMedia(const int index);
     Q_INVOKABLE QStringList baseNames();
     Q_INVOKABLE QStringList absolutePaths();
+    Q_INVOKABLE void forward();
+    Q_INVOKABLE void backward();
 
 private:
     QMediaPlayer *player;
