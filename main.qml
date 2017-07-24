@@ -42,6 +42,14 @@ ApplicationWindow {
         anchors.topMargin: 0
         source: "https://wallpaperscraft.com/image/balloon_flight_plant_91681_1920x1080.jpg"
         fillMode: Image.PreserveAspectCrop
+
+        Behavior on height {
+
+            NumberAnimation {
+                duration: 600
+                easing.type: Easing.OutBounce
+            }
+        }
     }
 
     TabBarOption {
@@ -55,8 +63,19 @@ ApplicationWindow {
         currentIndex: bar.currentIndex
         anchors.top: cover.bottom
         anchors.bottom: parent.bottom
+
         PageMusic {
             id: pageMusic
+        }
+
+        PagePlaylist {
+
+        }
+
+        onCurrentIndexChanged: {
+            console.log(bar.currentIndex)
+            if (bar.currentIndex == 1) cover.height = applicationWindow.height * 0.3;
+            else cover.height = applicationWindow.height * 0.55;
         }
     }
 }
