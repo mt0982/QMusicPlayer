@@ -145,6 +145,35 @@ ApplicationWindow {
         horizontalAlignment: Text.AlignHCenter
         y: Math.abs((sliderDuration.y + (sliderDuration.height / 2) + btnPlayStop.y) / 2)
     }
+
+
+    TabBar {
+        id: bar
+        anchors.horizontalCenter: cover.horizontalCenter
+        anchors.bottom: cover.bottom
+        background: Rectangle {
+            anchors.fill: parent
+            color: "transparent"
+        }
+
+        TabButton {
+            text: "A"
+            width: parent.height
+            height: parent.height
+        }
+
+        TabButton {
+            text: "A"
+            width: parent.height
+            height: parent.height
+        }
+
+        TabButton {
+            text: "B"
+            width: parent.height
+            height: parent.height
+        }
+    }
 }
 
 
