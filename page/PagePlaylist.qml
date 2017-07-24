@@ -10,6 +10,7 @@ Item {
     }
 
     ListView {
+        ScrollBar.vertical: ScrollBar { }
         id: listView
         anchors.fill: parent
         clip: true
@@ -65,5 +66,4 @@ Item {
             }
         }
     }
-
 }

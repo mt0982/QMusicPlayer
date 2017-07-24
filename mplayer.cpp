@@ -66,6 +66,13 @@ void MPlayer::backward()
     player->playlist()->previous();
 }
 
+int MPlayer::currentIndex()
+{
+    qDebug() << "MPlayer::currentIndex()";
+    if (player->state() == QMediaPlayer::PlayingState) return player->playlist()->currentIndex();
+    return -1;
+}
+
 void MPlayer::durationChanged(qint64 duration)
 {
     qDebug() << "MPlayer::durationChanged(qint64):" << duration;

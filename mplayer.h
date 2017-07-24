@@ -17,6 +17,7 @@ public:
     Q_INVOKABLE QStringList absolutePaths();
     Q_INVOKABLE void forward();
     Q_INVOKABLE void backward();
+    Q_INVOKABLE int currentIndex();
 
 private:
     QMediaPlayer *player;
