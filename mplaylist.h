@@ -10,10 +10,31 @@ class MPlaylist {
 public:
     MPlaylist();
 
-    //QList<QString> playlist
+    QStringList getAbsolutePaths() const;
+    QStringList getBaseNames() const;
 
 private:
-
+    QStringList baseNames;
+    QStringList absolutePaths;
 };
 
 #endif // MPLAYLIST_H
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

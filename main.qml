@@ -69,11 +69,10 @@ ApplicationWindow {
         }
 
         PagePlaylist {
-
+            Component.onCompleted: addSongs(mplayer.baseNames(), mplayer.absolutePaths())
         }
 
         onCurrentIndexChanged: {
-            console.log(bar.currentIndex)
             if (bar.currentIndex == 1) cover.height = applicationWindow.height * 0.3;
             else cover.height = applicationWindow.height * 0.55;
         }

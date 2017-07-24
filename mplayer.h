@@ -12,6 +12,8 @@ public:
 
     Q_INVOKABLE int play();
     Q_INVOKABLE void setPosition(qint64 position);
+    Q_INVOKABLE QStringList baseNames();
+    Q_INVOKABLE QStringList absolutePaths();
 
 private:
     QMediaPlayer *player;

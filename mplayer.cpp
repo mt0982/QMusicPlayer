@@ -34,6 +34,16 @@ void MPlayer::setPosition(qint64 position)
     player->setPosition(position);
 }
 
+QStringList MPlayer::baseNames()
+{
+    return playlist.getBaseNames();
+}
+
+QStringList MPlayer::absolutePaths()
+{
+    return playlist.getAbsolutePaths();
+}
+
 void MPlayer::durationChanged(qint64 duration)
 {
     qDebug() << "MPlayer::durationChanged(qint64):" << duration;
