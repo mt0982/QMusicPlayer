@@ -6,10 +6,10 @@ MPlaylist::MPlaylist()
     QDirIterator it(path, QStringList() << "*.mp3", QDir::Files, QDirIterator::Subdirectories);
 
     while (it.hasNext()) {
+        it.next();
         baseNames << it.fileInfo().baseName();
         absolutePaths << it.fileInfo().absoluteFilePath();
         qDebug() << it.fileInfo().baseName() << it.fileInfo().absoluteFilePath();
-        it.next();
     }
 }
 

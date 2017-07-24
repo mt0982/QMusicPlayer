@@ -27,6 +27,8 @@ Item {
             text: model.title
             width: parent.width
 
+            onClicked: mplayer.setMedia(model.path)
+
             ListView.onRemove: SequentialAnimation {
                 PropertyAction {
                     target: swipeDelegate

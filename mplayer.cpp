@@ -3,7 +3,7 @@
 MPlayer::MPlayer(QObject *parent): QObject(parent)
 {
     player = new QMediaPlayer;
-    player->setMedia(QUrl::fromLocalFile("/home/asus/Programy/Qt/Projekty/QMusicPlayer/Hurts - Some Kind of Heaven.mp3"));
+    player->setMedia(QUrl::fromLocalFile("/home/asus/Programy/Qt/Projekty/QMusicPlayer/Hurts - Some Kind Of Heaven.mp3"));
     player->setVolume(100);
 
     connect(player, SIGNAL(durationChanged(qint64)), this, SLOT(durationChanged(qint64)));
@@ -32,6 +32,14 @@ int MPlayer::play()
 void MPlayer::setPosition(qint64 position)
 {
     player->setPosition(position);
+}
+
+void MPlayer::setMedia(const QString &localfile)
+{
+    if (player->state() == QMediaPlayer::PlayingState) {
+        player->setMedia(QUrl::fromLocalFile(localfile));
+        player->play();
+    }
 }
 
 QStringList MPlayer::baseNames()
