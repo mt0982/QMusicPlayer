@@ -27,7 +27,7 @@ Item {
             text: model.title
             width: parent.width
 
-            onClicked: mplayer.setMedia(model.path)
+            onClicked: mplayer.setMedia(model.index)
 
             ListView.onRemove: SequentialAnimation {
                 PropertyAction {
