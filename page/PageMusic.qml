@@ -6,6 +6,7 @@ Item {
     property alias sliderDuration: sliderDuration
     property alias currentTime: currentTime
     property alias maxTime: maxTime
+    property alias btnIcon: btnIcon
     property int maxDuration
 
     ProgressBar {

@@ -29,6 +29,9 @@ ApplicationWindow {
             pageMusic.currentTime.text = positionText;
             pageMusic.sliderDuration.value = position;
         }
+        onSendStatus: {
+            pageMusic.btnIcon.source = status
+        }
     }
 
     Image {

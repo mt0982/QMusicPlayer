@@ -4,11 +4,11 @@ MPlayer::MPlayer(QObject *parent): QObject(parent)
 {
     player = new QMediaPlayer;
     player->setVolume(100);
+    player->setPlaylist(playlist.getPlaylist());
 
     connect(player, SIGNAL(durationChanged(qint64)), this, SLOT(durationChanged(qint64)));
     connect(player, SIGNAL(positionChanged(qint64)), this, SLOT(positionChanged(qint64)));
-
-    player->setPlaylist(playlist.getPlaylist());
+    connect(player->playlist(), SIGNAL(currentIndexChanged(int)), this, SLOT(stateChanged(int)));
 }
 
 int MPlayer::play()
@@ -78,6 +78,12 @@ void MPlayer::positionChanged(qint64 position)
     QString text = QString::number(minutes) + ":" + QString("%1").arg(sec, 2, 10, QChar('0'));
 
     emit sendPosition(position, text);
+}
+
+void MPlayer::stateChanged(int)
+{
+    if (player->state() == QMediaPlayer::PlayingState) emit sendStatus("qrc:/icon/pause.png");
+    else emit sendStatus("qrc:/icon/play.png");
 }
 
 
