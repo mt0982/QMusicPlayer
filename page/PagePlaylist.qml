@@ -17,12 +17,32 @@ Item {
         anchors.fill: parent
         clip: true
 
+        section.property: "title"
+        section.criteria: ViewSection.FirstCharacter
+        section.delegate:  Rectangle {
+            width: parent.width
+            height: childrenRect.height
+            color: "#324254"
+
+            Text {
+                text: section
+                font.family: "Helvetica"
+                font.pointSize: root.width * 0.05
+                font.bold: true
+            }
+        }
+
         model: ListModel {
             id: songModel
-//            ListElement { sender: "Bob Bobbleton"; title: "How are you going?" }
-//            ListElement { sender: "Rug Emporium"; title: "SALE! All rugs MUST go!" }
-//            ListElement { sender: "Electric Co."; title: "Electricity bill 15/07/2016 overdue" }
-//            ListElement { sender: "Tips"; title: "Five ways this tip will save your life" }
+
+            Component.onCompleted: {
+                for(var i=0; i< count; i++) {
+                    for(var j=0; j<i; j++) {
+                        if(get(i).section === get(j).section) move(i,j,1)
+                        break
+                    }
+                }
+            }
         }
 
         delegate: SwipeDelegate {
