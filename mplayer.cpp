@@ -37,12 +37,8 @@ void MPlayer::setPosition(qint64 position)
 
 void MPlayer::setMedia(const int index)
 {
-    if (player->state() == QMediaPlayer::PlayingState) {
-        player->playlist()->setCurrentIndex(index);
-        player->play();
-    }
-
-    player->play();
+    player->playlist()->setCurrentIndex(index);
+    if (player->state() != QMediaPlayer::PlayingState) player->play();
 }
 
 QStringList MPlayer::baseNames()

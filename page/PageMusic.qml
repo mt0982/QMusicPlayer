@@ -130,6 +130,7 @@ Item {
         text: qsTr("<b>Counting Down The Days</b> <br>Natalie Imbruglia")
         font.family: "Helvetica" //"None Sans"
         font.pointSize: root.width * 0.03
+        color: "#324254"
         anchors.horizontalCenter: parent.horizontalCenter
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
