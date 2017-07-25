@@ -1,7 +1,7 @@
 import QtQuick 2.6
 import QtQuick.Window 2.2
 import QtQuick.Controls 2.0
-import QtQuick.Controls.Material 2.0
+//import QtQuick.Controls.Material 2.0
 import QtQuick.Layouts 1.0
 import QtQuick.Layouts 1.3
 import "component"
@@ -84,8 +84,8 @@ ApplicationWindow {
         }
 
         onCurrentIndexChanged: {
-            if (!currentIndex) heightFlag = true;
-            else if (currentIndex == 1) heightFlag = false;
+            if (currentIndex == 1) heightFlag = false;
+            else heightFlag = true;
         }
     }
 }

@@ -26,6 +26,11 @@ Item {
             sourceChecked: "qrc:/icon/playlist_checked.png"
             sourceUnchecked: "qrc:/icon/playlist_unchecked.png"
         }
+
+        AbstractTabBarButton {
+            sourceChecked: "qrc:/icon/radio_checked.png"
+            sourceUnchecked: "qrc:/icon/radio_unchecked.png"
+        }
     }
 }
 
