@@ -7,7 +7,7 @@ Item {
 
     function addSongs(baseNames, absolutePath) {
         for (var i = 0; i < baseNames.length; i++) {
-            songModel.append({"title": baseNames[i], "path": absolutePath[i]})
+            songModel.append({"title": baseNames[i], "path": absolutePath[i], "id": i})
         }
     }
 
@@ -44,10 +44,10 @@ Item {
             id: songModel
 
             Component.onCompleted: {
-                for(var i = 0; i< count; i++) {
+                for(var i = 0; i < count; i++) {
                     for(var j = 0; j < i; j++) {
-                        if(get(i).title < get(j).title) move(i,j,1)
-                        //break
+                        if(get(i).title < get(j).title)
+                            move(i,j,1)
                     }
                 }
             }
@@ -60,7 +60,7 @@ Item {
             font.family: "Helvetica" //"None Sans"
             font.pointSize: root.width * 0.03
 
-            onClicked: mplayer.setMedia(model.index)
+            onClicked: mplayer.setMedia(model.id)
 
             ListView.onRemove: SequentialAnimation {
                 PropertyAction {

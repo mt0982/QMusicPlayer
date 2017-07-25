@@ -17,11 +17,12 @@ MPlaylist::MPlaylist()
     while (it.hasNext()) {
         it.next();
 
-        QString basename = it.fileInfo().baseName().trimmed();
+        QString basename = it.fileInfo().baseName();
         basename[0] = basename[0].toUpper();
 
         baseNames << basename;
         absolutePaths << it.fileInfo().absoluteFilePath();
+
         playlist->addMedia(QUrl::fromLocalFile(it.fileInfo().absoluteFilePath()));
 
         qDebug() << it.fileInfo().baseName() << it.fileInfo().absoluteFilePath();
@@ -33,7 +34,7 @@ MPlaylist::MPlaylist()
         while (it.hasNext()) {
             it.next();
 
-            QString basename = it.fileInfo().baseName().trimmed();
+            QString basename = it.fileInfo().baseName();
             basename[0] = basename[0].toUpper();
 
             baseNames << basename;

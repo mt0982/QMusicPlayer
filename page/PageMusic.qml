@@ -134,8 +134,8 @@ Item {
         font.pointSize: root.width * 0.03
         color: "#324254"
         anchors.horizontalCenter: parent.horizontalCenter
-        verticalAlignment: Text.AlignVCenter
-        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Label.AlignVCenter
+        horizontalAlignment: Label.AlignHCenter
         y: Math.abs((sliderDuration.y + (sliderDuration.height / 2) + btnPlayStop.y) / 2)
     }
 }
