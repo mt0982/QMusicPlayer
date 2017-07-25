@@ -17,8 +17,9 @@ MPlaylist::MPlaylist()
     while (it.hasNext()) {
         it.next();
 
-        QString basename = it.fileInfo().baseName();
+        QString basename = it.fileInfo().fileName().replace(".mp3", "").toLatin1(); //baseName() remove substr sometimes
         basename[0] = basename[0].toUpper();
+        basename.replace("?", "");  //remove unrecognized symbols
 
         baseNames << basename;
         absolutePaths << it.fileInfo().absoluteFilePath();
@@ -34,8 +35,9 @@ MPlaylist::MPlaylist()
         while (it.hasNext()) {
             it.next();
 
-            QString basename = it.fileInfo().baseName();
+            QString basename = it.fileInfo().fileName().replace(".mp3", "").toLatin1(); //baseName() ...
             basename[0] = basename[0].toUpper();
+            basename.replace("?", "");  //remove unrecognized symbols
 
             baseNames << basename;
             absolutePaths << it.fileInfo().absoluteFilePath();
