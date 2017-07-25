@@ -2,7 +2,14 @@
 
 MPlaylist::MPlaylist()
 {
-    QString path = "/home/asus/Programy/Qt/Projekty/QMusicPlayer";
+    QString path;
+#ifdef Q_OS_ANDROID
+    qDebug() << "Q_OS_ANDROID";
+    path = "/storage/sdcard0/Music";
+#else
+    path = "/home/asus/Programy/Qt/Projekty/QMusicPlayer";
+#endif
+
     QDirIterator it(path, QStringList() << "*.mp3", QDir::Files, QDirIterator::Subdirectories);
     playlist = new QMediaPlaylist;
 
