@@ -68,10 +68,7 @@ ApplicationWindow {
             anchors.top: parent.top
             anchors.right: parent.right
             anchors.margins: 15
-            background: Image {
-                source: "qrc:/icon/settings.png"
-                //anchors.fill: parent
-            }
+            background: Image { source: "qrc:/icon/settings.png" }
         }
     }
 
@@ -93,6 +90,10 @@ ApplicationWindow {
 
         PagePlaylist {
             Component.onCompleted: addSongs(mplayer.baseNames(), mplayer.absolutePaths())
+        }
+
+        PageRadio {
+
         }
 
         onCurrentIndexChanged: {
