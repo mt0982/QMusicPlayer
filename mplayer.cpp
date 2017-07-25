@@ -38,7 +38,6 @@ void MPlayer::setPosition(qint64 position)
 void MPlayer::setMedia(const int index)
 {
     if (player->state() == QMediaPlayer::PlayingState) {
-        //player->setMedia(QUrl::fromLocalFile(localfile));
         player->playlist()->setCurrentIndex(index);
         player->play();
     }
@@ -99,6 +98,7 @@ void MPlayer::positionChanged(qint64 position)
 
 void MPlayer::stateChanged(int)
 {
+    qDebug() << "void MPlayer::stateChanged()" << player->state();
     if (player->state() == QMediaPlayer::PlayingState) emit sendStatus("qrc:/icon/pause.png");
     else emit sendStatus("qrc:/icon/play.png");
 }

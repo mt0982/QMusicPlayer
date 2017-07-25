@@ -28,7 +28,7 @@ Item {
             text: model.title
             width: parent.width
             font.family: "Helvetica" //"None Sans"
-            font.pointSize: 16 //10
+            font.pointSize: root.width * 0.03
 
             onClicked: mplayer.setMedia(model.index)
 

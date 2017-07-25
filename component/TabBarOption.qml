@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.0
+import QtQuick.Window 2.0
 import "../abstract"
 
 Item {
@@ -8,7 +9,7 @@ Item {
 
     TabBar {
         id: bar
-        height: 64 /* PC - default */
+        height: root.height * 0.1   //Static Android - 64, PC - default
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
         background: Rectangle {

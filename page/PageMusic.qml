@@ -2,7 +2,6 @@ import QtQuick 2.0
 import QtQuick.Controls 2.0
 
 Item {
-    id: item1
 
     property alias sliderDuration: sliderDuration
     property alias currentTime: currentTime
@@ -14,8 +13,8 @@ Item {
         id: sliderDuration
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
-        anchors.topMargin: 35 //25
-        width: parent.width - 150  //100
+        anchors.topMargin: parent.height * 0.1  //Static Android 35 // PC - 25
+        width: parent.width - 150               //PC - 100
 
         background: Rectangle {
             anchors.fill: parent
@@ -29,7 +28,6 @@ Item {
             Rectangle {
                 width: sliderDuration.visualPosition * parent.width
                 height: parent.height
-                radius: 2
                 color: "#f55b47"
             }
         }
@@ -67,8 +65,8 @@ Item {
         id: btnPrevious
         x: 25
         y: 428
-        width: 80 //64
-        height: 80 //64
+        width: parent.width * 0.16 //Static Android - 80 //PC - 64
+        height: parent.width * 0.16 //Static Android - 80 //PC - 64
         anchors.right: btnPlayStop.left
         anchors.rightMargin: 15
         anchors.verticalCenter: btnPlayStop.verticalCenter
@@ -76,14 +74,17 @@ Item {
             anchors.fill: parent
             source: "qrc:/icon/backward.png"
         }
-        onClicked: mplayer.backward()
+        onClicked: {
+            mplayer.backward()
+            btnIcon.source = "qrc:/icon/pause.png"
+        }
     }
 
     Button {
         id: btnPlayStop
         y: 428
-        width: 128 //80
-        height: 128 //80
+        width: parent.width * 0.26      //Static Android - 128 //PC - 64
+        height: parent.width * 0.26     //Static Android - 128 //PC - 64
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 10
         anchors.horizontalCenter: parent.horizontalCenter
@@ -109,8 +110,8 @@ Item {
     Button {
         id: btnNext
         y: 428
-        width: 80 //64
-        height: 80 //64
+        width: parent.width * 0.16      //Static Android - 80 //PC - 64
+        height: parent.width * 0.16     //Static Android - 80 //PC - 64
         anchors.left: btnPlayStop.right
         anchors.leftMargin: 15
         anchors.verticalCenter: btnPlayStop.verticalCenter
@@ -118,14 +119,17 @@ Item {
             anchors.fill: parent
             source: "qrc:/icon/forward.png"
         }
-        onClicked: mplayer.forward()
+        onClicked: {
+            mplayer.forward()
+            btnIcon.source = "qrc:/icon/pause.png"
+        }
     }
 
     Label {
         id: title
         text: qsTr("<b>Counting Down The Days</b> <br>Natalie Imbruglia")
         font.family: "Helvetica" //"None Sans"
-        font.pointSize: 16 //10
+        font.pointSize: root.width * 0.03
         anchors.horizontalCenter: parent.horizontalCenter
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter

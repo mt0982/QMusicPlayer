@@ -11,14 +11,11 @@ import "page"
 //https://s-media-cache-ak0.pinimg.com/originals/c2/af/95/c2af951ba1ce42d5b536cd98ef3f8303.png
 
 ApplicationWindow {
-    id: applicationWindow
+    id: root
     visible: true
     color: Qt.rgba(240, 240, 240, 255)
-    //width: 480 * 0.6
-    //height: 800 * 0.6
-    //visibility: Window.FullScreen
-
-    signal sendSliderValue(int x)
+    width: 480 * 0.6
+    height: 800 * 0.6
 
     property bool heightFlag: true
 
@@ -52,7 +49,7 @@ ApplicationWindow {
 
         Rectangle {
             width: parent.width
-            height: 2
+            height: 1
             color: "#ccf55c47"
             anchors.bottom: parent.bottom
         }
