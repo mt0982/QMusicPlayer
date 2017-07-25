@@ -16,10 +16,15 @@ MPlaylist::MPlaylist()
 
     while (it.hasNext()) {
         it.next();
-        baseNames << it.fileInfo().baseName();
+
+        QString basename = it.fileInfo().baseName().trimmed();
+        basename[0] = basename[0].toUpper();
+
+        baseNames << basename;
         absolutePaths << it.fileInfo().absoluteFilePath();
-        qDebug() << it.fileInfo().baseName() << it.fileInfo().absoluteFilePath();
         playlist->addMedia(QUrl::fromLocalFile(it.fileInfo().absoluteFilePath()));
+
+        qDebug() << it.fileInfo().baseName() << it.fileInfo().absoluteFilePath();
     }
 
     /* Android Download Dir */
@@ -27,10 +32,15 @@ MPlaylist::MPlaylist()
         QDirIterator it(path2, QStringList() << "*.mp3", QDir::Files, QDirIterator::Subdirectories);
         while (it.hasNext()) {
             it.next();
-            baseNames << it.fileInfo().baseName();
+
+            QString basename = it.fileInfo().baseName().trimmed();
+            basename[0] = basename[0].toUpper();
+
+            baseNames << basename;
             absolutePaths << it.fileInfo().absoluteFilePath();
-            qDebug() << it.fileInfo().baseName() << it.fileInfo().absoluteFilePath();
             playlist->addMedia(QUrl::fromLocalFile(it.fileInfo().absoluteFilePath()));
+
+            qDebug() << it.fileInfo().baseName() << it.fileInfo().absoluteFilePath();
         }
     }
 

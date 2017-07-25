@@ -19,16 +19,24 @@ Item {
 
         section.property: "title"
         section.criteria: ViewSection.FirstCharacter
-        section.delegate:  Rectangle {
+        section.delegate: Item {
             width: parent.width
             height: childrenRect.height
-            color: "#324254"
 
             Text {
-                text: section
+                text: " " + section
                 font.family: "Helvetica"
                 font.pointSize: root.width * 0.05
                 font.bold: true
+                width: parent.width
+
+                Rectangle {
+                    color: "#324254"
+                    height: 1
+                    anchors.bottom: parent.bottom
+                    width: parent.width
+                    //y: childrenRect.height
+                }
             }
         }
 
@@ -36,10 +44,10 @@ Item {
             id: songModel
 
             Component.onCompleted: {
-                for(var i=0; i< count; i++) {
-                    for(var j=0; j<i; j++) {
-                        if(get(i).section === get(j).section) move(i,j,1)
-                        break
+                for(var i = 0; i< count; i++) {
+                    for(var j = 0; j < i; j++) {
+                        if(get(i).title < get(j).title) move(i,j,1)
+                        //break
                     }
                 }
             }
