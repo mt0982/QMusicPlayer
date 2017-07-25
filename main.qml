@@ -61,6 +61,18 @@ ApplicationWindow {
                 easing.type: Easing.OutBounce
             }
         }
+
+        Button {
+            width: root.width * 0.08
+            height: root.width * 0.08
+            anchors.top: parent.top
+            anchors.right: parent.right
+            anchors.margins: 15
+            background: Image {
+                source: "qrc:/icon/settings.png"
+                //anchors.fill: parent
+            }
+        }
     }
 
     TabBarOption {
