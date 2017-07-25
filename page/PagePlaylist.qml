@@ -3,6 +3,8 @@ import QtQuick.Controls 2.0
 
 Item {
 
+    property alias songModel: songModel
+
     function addSongs(baseNames, absolutePath) {
         for (var i = 0; i < baseNames.length; i++) {
             songModel.append({"title": baseNames[i], "path": absolutePath[i]})

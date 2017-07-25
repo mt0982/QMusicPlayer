@@ -78,7 +78,7 @@ void MPlayer::durationChanged(qint64 duration)
 
     QString text = QString::number(minutes) + ":" + QString("%1").arg(sec, 2, 10, QChar('0'));
 
-    emit sendDuration(duration, text);
+    emit sendDuration(duration, text, player->playlist()->currentIndex());
 }
 
 void MPlayer::positionChanged(qint64 position)

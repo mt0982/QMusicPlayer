@@ -29,7 +29,7 @@ private slots:
     void stateChanged(int);
 
 signals:
-    void sendDuration(qint64 duration, QString durationText);
+    void sendDuration(qint64 duration, QString durationText, int currentIndex);
     void sendPosition(qint64 position, QString positionText);
     void sendStatus(QString status);
 };

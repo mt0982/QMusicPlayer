@@ -25,6 +25,7 @@ ApplicationWindow {
             pageMusic.maxDuration = duration;
             pageMusic.sliderDuration.to = duration;
             pageMusic.maxTime.text = durationText;
+            pageMusic.title.text = mplayer.baseNames()[currentIndex]
         }
         onSendPosition: {
             pageMusic.currentTime.text = positionText;
@@ -89,6 +90,7 @@ ApplicationWindow {
         }
 
         PagePlaylist {
+            id: pagePlaylist
             Component.onCompleted: addSongs(mplayer.baseNames(), mplayer.absolutePaths())
         }
 
