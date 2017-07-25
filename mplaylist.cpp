@@ -6,6 +6,7 @@ MPlaylist::MPlaylist()
 #ifdef Q_OS_ANDROID
     qDebug() << "Q_OS_ANDROID";
     path = "/storage/sdcard0/Music";
+    ///storage/sdcard0/Downloads
 #else
     path = "/home/asus/Programy/Qt/Projekty/QMusicPlayer";
 #endif

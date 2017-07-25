@@ -13,8 +13,10 @@ import "page"
 ApplicationWindow {
     id: applicationWindow
     visible: true
-    width: 480 * 0.6
-    height: 800 * 0.6
+    color: Qt.rgba(240, 240, 240, 255)
+    //width: 480 * 0.6
+    //height: 800 * 0.6
+    //visibility: Window.FullScreen
 
     signal sendSliderValue(int x)
 
@@ -47,6 +49,13 @@ ApplicationWindow {
         anchors.topMargin: 0
         source: "https://wallpaperscraft.com/image/balloon_flight_plant_91681_1920x1080.jpg"
         fillMode: Image.PreserveAspectCrop
+
+        Rectangle {
+            width: parent.width
+            height: 2
+            color: "#ccf55c47"
+            anchors.bottom: parent.bottom
+        }
 
         Behavior on height {
 

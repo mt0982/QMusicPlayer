@@ -8,6 +8,7 @@ Item {
 
     TabBar {
         id: bar
+        height: 64 /* PC - default */
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
         background: Rectangle {

@@ -27,6 +27,8 @@ Item {
             id: swipeDelegate
             text: model.title
             width: parent.width
+            font.family: "Helvetica" //"None Sans"
+            font.pointSize: 16 //10
 
             onClicked: mplayer.setMedia(model.index)
 
