@@ -21,12 +21,7 @@ MPlaylist::MPlaylist()
         basename[0] = basename[0].toUpper();
         basename.replace("?", "");  //remove unrecognized symbols
 
-        baseNames << basename;
-        absolutePaths << it.fileInfo().absoluteFilePath();
-
-        playlist->addMedia(QUrl::fromLocalFile(it.fileInfo().absoluteFilePath()));
-
-        qDebug() << it.fileInfo().baseName() << it.fileInfo().absoluteFilePath();
+        mFileInfo.push_back(MFileInfo(basename, it.fileInfo().absoluteFilePath()));
     }
 
     /* Android Download Dir */
@@ -39,12 +34,19 @@ MPlaylist::MPlaylist()
             basename[0] = basename[0].toUpper();
             basename.replace("?", "");  //remove unrecognized symbols
 
-            baseNames << basename;
-            absolutePaths << it.fileInfo().absoluteFilePath();
-            playlist->addMedia(QUrl::fromLocalFile(it.fileInfo().absoluteFilePath()));
-
-            qDebug() << it.fileInfo().baseName() << it.fileInfo().absoluteFilePath();
+            mFileInfo.push_back(MFileInfo(basename, it.fileInfo().absoluteFilePath()));
         }
+    }
+
+    std::sort(mFileInfo.begin(), mFileInfo.end(), [](const MFileInfo &a, const MFileInfo &b)->bool {
+        return a.baseName < b.baseName;
+    });
+
+    foreach (MFileInfo file, mFileInfo) {
+        qDebug() << file.baseName;
+        absolutePaths << file.absolutePath;
+        baseNames << file.baseName;
+        playlist->addMedia(QUrl::fromLocalFile(file.absolutePath));
     }
 
     playlist->setPlaybackMode(QMediaPlaylist::Loop);

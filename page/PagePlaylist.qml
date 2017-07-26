@@ -42,15 +42,6 @@ Item {
 
         model: ListModel {
             id: songModel
-
-            Component.onCompleted: {
-                for(var i = 0; i < count; i++) {
-                    for(var j = 0; j < i; j++) {
-                        if(get(i).title < get(j).title)
-                            move(i,j,1)
-                    }
-                }
-            }
         }
 
         delegate: SwipeDelegate {

@@ -6,6 +6,14 @@
 #include <QDebug>
 #include <QMediaPlaylist>
 
+struct MFileInfo {
+    QString baseName;
+    QString absolutePath;
+
+    MFileInfo() {}
+    MFileInfo(QString name, QString path) : baseName(name), absolutePath(path) {}
+};
+
 class MPlaylist {
 
 public:
@@ -16,9 +24,10 @@ public:
     QMediaPlaylist *getPlaylist() const;
 
 private:
-    QStringList baseNames;
-    QStringList absolutePaths;
+    QList<MFileInfo> mFileInfo;
     QMediaPlaylist *playlist;
+    QStringList absolutePaths;
+    QStringList baseNames;
 };
 
 #endif // MPLAYLIST_H
