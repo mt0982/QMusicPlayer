@@ -31,12 +31,30 @@ Item {
                 width: parent.width
 
                 Rectangle {
-                    color: "#324254"
-                    height: 1
-                    anchors.bottom: parent.bottom
-                    width: parent.width
-                    //y: childrenRect.height
+                    color: "#cccccc"
+                    border.width: 1
+                    border.color: "#b3b3b3"
+//                    gradient: Gradient {
+//                        GradientStop {
+//                            position: 0.00;
+//                            color: "tomato";
+//                        }
+//                        GradientStop {
+//                            position: 1.00;
+//                            color: "#ffffff";
+//                        }
+//                    }
+                    anchors.fill: parent
+                    z: -1
                 }
+
+//                Rectangle {
+//                    color: "#324254"
+//                    height: 1
+//                    anchors.bottom: parent.bottom
+//                    width: parent.width
+//                    //y: childrenRect.height
+//                }
             }
         }
 
@@ -50,6 +68,13 @@ Item {
             width: parent.width
             font.family: "Helvetica" //"None Sans"
             font.pointSize: root.width * 0.03
+
+            Rectangle {
+                color: "#80cccccc"
+                width: parent.width
+                height: 1
+                anchors.bottom: parent.bottom
+            }
 
             onClicked: {
                 mplayer.setMedia(model.id)
