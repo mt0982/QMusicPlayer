@@ -68,6 +68,28 @@ int MPlayer::currentIndex()
     return -1;
 }
 
+void MPlayer::setPlaybackMode(const int value)
+{
+    qDebug() << "MPlayer::setPlaybackMode" << value;
+
+    switch (value) {
+    case 1:
+        player->playlist()->setPlaybackMode(QMediaPlaylist::CurrentItemInLoop);
+        break;
+    case 2:
+        player->playlist()->setPlaybackMode(QMediaPlaylist::Sequential);
+        break;
+    case 3:
+        player->playlist()->setPlaybackMode(QMediaPlaylist::Loop);
+        break;
+    case 4:
+        player->playlist()->setPlaybackMode(QMediaPlaylist::Random);
+        break;
+    default:
+        break;
+    }
+}
+
 void MPlayer::durationChanged(qint64 duration)
 {
     qDebug() << "MPlayer::durationChanged(qint64):" << duration;

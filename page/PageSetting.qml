@@ -18,14 +18,27 @@ Item {
         Column {
             id: column
             anchors.fill: parent
+
             CheckBox {
                 checked: true
                 text: qsTr("Loop")
+                onClicked: mplayer.setPlaybackMode(3)
             }
 
-            CheckBox { text: qsTr("Sequential") }
-            CheckBox { text: qsTr("Repeat") }
-            CheckBox { text: qsTr("Radom") }
+            CheckBox {
+                text: qsTr("Sequential")
+                onClicked: mplayer.setPlaybackMode(2)
+            }
+
+            CheckBox {
+                text: qsTr("Repeat")
+                onClicked: mplayer.setPlaybackMode(1)
+            }
+
+            CheckBox {
+                text: qsTr("Radom")
+                onClicked: mplayer.setPlaybackMode(4)
+            }
         }
     }
 
@@ -41,4 +54,24 @@ Item {
 //            CheckBox { text: qsTr("Radom") }
 //        }
 //    }
+
+    Button {
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        anchors.margins: 10
+        onClicked: stack.pop()
+        text: "OK"
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+

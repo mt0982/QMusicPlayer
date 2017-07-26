@@ -18,6 +18,7 @@ public:
     Q_INVOKABLE void forward();
     Q_INVOKABLE void backward();
     Q_INVOKABLE int currentIndex();
+    Q_INVOKABLE void setPlaybackMode(const int value);
 
 private:
     QMediaPlayer *player;
