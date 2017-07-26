@@ -51,7 +51,10 @@ Item {
             font.family: "Helvetica" //"None Sans"
             font.pointSize: root.width * 0.03
 
-            onClicked: mplayer.setMedia(model.id)
+            onClicked: {
+                mplayer.setMedia(model.id)
+                pageMusic.btnIcon.source = "qrc:/icon/pause.png"
+            }
 
             ListView.onRemove: SequentialAnimation {
                 PropertyAction {

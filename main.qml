@@ -73,17 +73,10 @@ ApplicationWindow {
             background: Image { source: "qrc:/icon/settings.png" }
         }
 
-        visible: false
+       // visible: false
     }
 
-    DropShadow {
-        anchors.fill: cover
-        radius: 8.0
-        samples: 16
-        color: "#b0000000"
-        source: cover
-        verticalOffset: 2
-    }
+
 
     TabBarOption {
         id: bar
