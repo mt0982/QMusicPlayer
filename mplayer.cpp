@@ -53,12 +53,18 @@ QStringList MPlayer::absolutePaths()
 
 void MPlayer::forward()
 {
+    QMediaPlaylist::PlaybackMode currentMode = player->playlist()->playbackMode(); //Otherwise we can't change track
+    player->playlist()->setPlaybackMode(QMediaPlaylist::Loop);
     player->playlist()->next();
+    player->playlist()->setPlaybackMode(currentMode);
 }
 
 void MPlayer::backward()
 {
+    QMediaPlaylist::PlaybackMode currentMode = player->playlist()->playbackMode(); //Otherwise we can't change track
+    player->playlist()->setPlaybackMode(QMediaPlaylist::Loop);
     player->playlist()->previous();
+    player->playlist()->setPlaybackMode(currentMode);
 }
 
 int MPlayer::currentIndex()
