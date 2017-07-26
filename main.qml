@@ -5,6 +5,7 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
+import QtQuick.Controls 2.0
 import "component"
 import "page"
 
@@ -72,11 +73,7 @@ ApplicationWindow {
             anchors.margins: 15
             background: Image { source: "qrc:/icon/settings.png" }
         }
-
-       // visible: false
     }
-
-
 
     TabBarOption {
         id: bar

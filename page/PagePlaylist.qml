@@ -29,32 +29,15 @@ Item {
                 font.pointSize: root.width * 0.05
                 font.bold: true
                 width: parent.width
+                color: Qt.rgba(240, 240, 240)
 
                 Rectangle {
-                    color: "#cccccc"
+                    color: "#324254"
                     border.width: 1
                     border.color: "#b3b3b3"
-//                    gradient: Gradient {
-//                        GradientStop {
-//                            position: 0.00;
-//                            color: "tomato";
-//                        }
-//                        GradientStop {
-//                            position: 1.00;
-//                            color: "#ffffff";
-//                        }
-//                    }
                     anchors.fill: parent
                     z: -1
                 }
-
-//                Rectangle {
-//                    color: "#324254"
-//                    height: 1
-//                    anchors.bottom: parent.bottom
-//                    width: parent.width
-//                    //y: childrenRect.height
-//                }
             }
         }
 
