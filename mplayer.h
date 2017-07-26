@@ -2,6 +2,7 @@
 #define MPLAYER_H
 
 #include <QMediaPlayer>
+#include <QSettings>
 #include <mplaylist.h>
 
 class MPlayer : public QObject {
@@ -9,6 +10,7 @@ class MPlayer : public QObject {
 
 public:
     explicit MPlayer(QObject *parent = 0);
+    ~MPlayer();
 
     Q_INVOKABLE int play();
     Q_INVOKABLE void setPosition(qint64 position);
@@ -23,6 +25,7 @@ public:
 private:
     QMediaPlayer *player;
     MPlaylist playlist;
+    QSettings settings;
 
 private slots:
     void durationChanged(qint64 duration);

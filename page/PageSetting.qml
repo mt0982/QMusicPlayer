@@ -69,7 +69,7 @@ Item {
         anchors.margins: 10
         width: parent.width * 0.5
         height: parent.height * 0.1
-        text: "OK"
+        text: qsTr("OK")
         onClicked: stack.pop()
     }
 }

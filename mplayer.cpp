@@ -9,6 +9,13 @@ MPlayer::MPlayer(QObject *parent): QObject(parent)
     connect(player, SIGNAL(durationChanged(qint64)), this, SLOT(durationChanged(qint64)));
     connect(player, SIGNAL(positionChanged(qint64)), this, SLOT(positionChanged(qint64)));
     connect(player->playlist(), SIGNAL(currentIndexChanged(int)), this, SLOT(stateChanged(int)));
+
+    player->playlist()->setCurrentIndex(settings.value("currentIndex").toInt());
+}
+
+MPlayer::~MPlayer()
+{
+    settings.setValue("currentIndex", player->playlist()->currentIndex());
 }
 
 int MPlayer::play()
@@ -56,6 +63,7 @@ void MPlayer::forward()
     QMediaPlaylist::PlaybackMode currentMode = player->playlist()->playbackMode(); //Otherwise we can't change track
     player->playlist()->setPlaybackMode(QMediaPlaylist::Loop);
     player->playlist()->next();
+    if (player->state() != QMediaPlayer::PlayingState) player->play();
     player->playlist()->setPlaybackMode(currentMode);
 }
 
@@ -64,6 +72,7 @@ void MPlayer::backward()
     QMediaPlaylist::PlaybackMode currentMode = player->playlist()->playbackMode(); //Otherwise we can't change track
     player->playlist()->setPlaybackMode(QMediaPlaylist::Loop);
     player->playlist()->previous();
+    if (player->state() != QMediaPlayer::PlayingState) player->play();
     player->playlist()->setPlaybackMode(currentMode);
 }
 
