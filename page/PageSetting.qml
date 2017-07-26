@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.2
 import Qt.labs.settings 1.0
+import "../abstract"
 
 Item {
 
@@ -23,7 +24,6 @@ Item {
     }
 
     ButtonGroup {
-        id: aaa
         buttons: column.children
     }
 
@@ -36,26 +36,26 @@ Item {
             id: column
             anchors.fill: parent
 
-            CheckBox {
+            AbstractCheckBox {
                 id: cbLoop
                 checked: true
                 text: qsTr("Loop")
                 onClicked: mplayer.setPlaybackMode(3)
             }
 
-            CheckBox {
+            AbstractCheckBox {
                 id: cbSequential
                 text: qsTr("Sequential")
                 onClicked: mplayer.setPlaybackMode(2)
             }
 
-            CheckBox {
+            AbstractCheckBox {
                 id: cbRepeat
                 text: qsTr("Repeat")
                 onClicked: mplayer.setPlaybackMode(1)
             }
 
-            CheckBox {
+            AbstractCheckBox {
                 id: cbRadom
                 text: qsTr("Radom")
                 onClicked: mplayer.setPlaybackMode(4)
@@ -67,8 +67,10 @@ Item {
         anchors.bottom: parent.bottom
         anchors.right: parent.right
         anchors.margins: 10
-        onClicked: stack.pop()
+        width: parent.width * 0.5
+        height: parent.height * 0.1
         text: "OK"
+        onClicked: stack.pop()
     }
 }
 

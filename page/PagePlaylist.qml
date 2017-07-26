@@ -33,8 +33,6 @@ Item {
 
                 Rectangle {
                     color: "#324254"
-                    border.width: 1
-                    border.color: "#b3b3b3"
                     anchors.fill: parent
                     z: -1
                 }
