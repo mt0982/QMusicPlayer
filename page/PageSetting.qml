@@ -42,19 +42,6 @@ Item {
         }
     }
 
-//    GroupBox {
-//        title: "Playback Mode:"
-//        width: parent.width
-
-//        ColumnLayout {
-//            anchors.fill: parent
-//            CheckBox { text: qsTr("Repeat") }
-//            CheckBox { text: qsTr("Sequential") }
-//            CheckBox { text: qsTr("Loop") }
-//            CheckBox { text: qsTr("Radom") }
-//        }
-//    }
-
     Button {
         anchors.bottom: parent.bottom
         anchors.right: parent.right

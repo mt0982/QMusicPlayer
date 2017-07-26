@@ -118,7 +118,7 @@ void MPlayer::stateChanged(int)
 {
     qDebug() << "void MPlayer::stateChanged()" << player->state();
     if (player->state() == QMediaPlayer::PlayingState) emit sendStatus("qrc:/icon/pause.png");
-    else emit sendStatus("qrc:/icon/play.png");
+    //else emit sendStatus("qrc:/icon/play.png");
 }
 
 

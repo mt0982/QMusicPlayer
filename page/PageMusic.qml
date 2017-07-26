@@ -41,11 +41,6 @@ Item {
                 mplayer.setPosition(percentage * maxDuration)
             }
         }
-
-        onValueChanged: {
-            if (value === maxDuration)
-                btnIcon.source = "qrc:/icon/play.png"
-        }
     }
 
     Label {
