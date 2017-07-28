@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.0
+import "../abstract"
 
 Item {
 
@@ -11,7 +12,7 @@ Item {
     property int maxDuration
 
 
-    ProgressBar {
+    Slider {
         id: sliderDuration
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
@@ -19,24 +20,36 @@ Item {
         width: parent.width - 150               //PC - 100
 
         background: Rectangle {
-            anchors.fill: parent
-            color: "#e6e6e6"
-        }
-
-        contentItem: Item {
+            x: sliderDuration.leftPadding
+            y: sliderDuration.topPadding + sliderDuration.availableHeight / 2 - height / 2
             implicitWidth: 200
             implicitHeight: 4
+            width: sliderDuration.availableWidth
+            height: implicitHeight
+            radius: 2
+            color: "#bdbebf"
 
             Rectangle {
                 width: sliderDuration.visualPosition * parent.width
                 height: parent.height
                 color: "#f55b47"
+                radius: 2
             }
+        }
+
+        handle: Rectangle {
+            x: sliderDuration.leftPadding + sliderDuration.visualPosition * (sliderDuration.availableWidth - width)
+            y: sliderDuration.topPadding + sliderDuration.availableHeight / 2 - height / 2
+            implicitWidth: parent.width * 0.1
+            implicitHeight: parent.width * 0.1
+            radius: parent.width * 0.1
+            color: sliderDuration.pressed ? "#f0f0f0" : "#f6f6f6"
+            border.color: "#bdbebf"
         }
 
         MouseArea {
             anchors.fill: parent
-            onClicked: {
+            onMouseXChanged: {
                 var percentage = ((mouseX * 100) / width) / 100;
                 mplayer.setPosition(percentage * maxDuration)
             }

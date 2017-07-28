@@ -5,9 +5,6 @@ import QtQuick.Controls 2.0
 import "component"
 import "page"
 
-//http://doc.qt.io/qt-4.8/qtbinding.html#receiving-signals
-//https://s-media-cache-ak0.pinimg.com/originals/c2/af/95/c2af951ba1ce42d5b536cd98ef3f8303.png
-
 ApplicationWindow {
     id: root
     visible: true
