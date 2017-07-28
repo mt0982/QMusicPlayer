@@ -11,6 +11,20 @@ MPlayer::MPlayer(QObject *parent): QObject(parent)
     connect(player->playlist(), SIGNAL(currentIndexChanged(int)), this, SLOT(stateChanged(int)));
 
     player->playlist()->setCurrentIndex(settings.value("currentIndex").toInt());
+
+    /* */
+    QAudioProbe *probe = new QAudioProbe;
+    QAudioRecorder *recorder = new QAudioRecorder();
+
+    QAudioEncoderSettings audioSettings;
+    audioSettings.setCodec("audio/amr");
+    audioSettings.setQuality(QMultimedia::HighQuality);
+
+    recorder->setEncodingSettings(audioSettings);
+
+    probe->setSource(player);
+
+    connect(probe, SIGNAL(audioBufferProbed(QAudioBuffer)), this, SLOT(calculateLevel(QAudioBuffer)));
 }
 
 MPlayer::~MPlayer()
@@ -134,6 +148,11 @@ void MPlayer::stateChanged(int)
     qDebug() << "void MPlayer::stateChanged()" << player->state();
     if (player->state() == QMediaPlayer::PlayingState) emit sendStatus("qrc:/icon/pause.png");
     //else emit sendStatus("qrc:/icon/play.png");
+}
+
+void MPlayer::calculateLevel(QAudioBuffer buffer)
+{
+    qDebug() << buffer.constData();
 }
 
 
