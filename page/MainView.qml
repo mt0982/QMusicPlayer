@@ -38,7 +38,7 @@ Item {
         anchors.leftMargin: 0
         anchors.top: parent.top
         anchors.topMargin: 0
-        source: "https://wallpaperscraft.com/image/balloon_flight_plant_91681_1920x1080.jpg"
+        source: "qrc:/background/background0"
         fillMode: Image.PreserveAspectCrop
 
         Rectangle {

@@ -132,8 +132,26 @@ Item {
         verticalAlignment: Label.AlignVCenter
         horizontalAlignment: Label.AlignHCenter
         y: Math.abs((sliderDuration.y + (sliderDuration.height / 2) + btnPlayStop.y) / 2)
+        width: root.width * 0.8
+        wrapMode: Label.WordWrap
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

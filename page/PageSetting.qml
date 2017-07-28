@@ -28,9 +28,10 @@ Item {
     }
 
     GroupBox {
-        title: "Playback Mode:"
+        title: " Playback Mode:"
         width: parent.width
         y: 20
+        background: Rectangle { color: "transparent" }
 
         Column {
             id: column
