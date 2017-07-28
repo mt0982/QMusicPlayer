@@ -68,9 +68,13 @@ Item {
         anchors.bottom: parent.bottom
         anchors.right: parent.right
         anchors.margins: 10
-        width: parent.width * 0.5
-        height: parent.height * 0.1
-        text: qsTr("OK")
+        width: parent.width * 0.26
+        height: parent.width * 0.26
+        background: Image {
+            id: btnIcon
+            anchors.fill: parent
+            source: "qrc:/icon/backward.png"
+        }
         onClicked: stack.pop()
     }
 }
