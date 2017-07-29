@@ -11,6 +11,11 @@ MPlayer::MPlayer(QObject *parent): QObject(parent)
     connect(player->playlist(), SIGNAL(currentIndexChanged(int)), this, SLOT(stateChanged(int)));
 
     player->playlist()->setCurrentIndex(settings.value("currentIndex").toInt());
+
+    /* */
+    QAudioProbe *probe = new QAudioProbe;
+    connect(probe, SIGNAL(audioBufferProbed(QAudioBuffer)), this, SLOT(processBuffer(QAudioBuffer)));
+    probe->setSource(player);
 }
 
 MPlayer::~MPlayer()
@@ -103,6 +108,11 @@ void MPlayer::setPlaybackMode(const int value)
     default:
         break;
     }
+}
+
+void MPlayer::processBuffer(QAudioBuffer buffer)
+{
+    qDebug() << (float)*buffer.data<quint16>() / UINT16_MAX;
 }
 
 void MPlayer::durationChanged(qint64 duration)

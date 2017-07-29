@@ -3,6 +3,8 @@
 
 #include <QMediaPlayer>
 #include <QSettings>
+#include <QAudioProbe>
+#include <QMediaMetaData>
 #include <mplaylist.h>
 
 class MPlayer : public QObject {
@@ -31,6 +33,7 @@ private slots:
     void durationChanged(qint64 duration);
     void positionChanged(qint64 position);
     void stateChanged(int);
+    void processBuffer(QAudioBuffer buffer);
 
 signals:
     void sendDuration(qint64 duration, QString durationText, int currentIndex);
