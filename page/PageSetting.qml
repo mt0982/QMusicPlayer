@@ -24,42 +24,84 @@ Item {
     }
 
     ButtonGroup {
-        buttons: column.children
+        //buttons: column.children
+        id: group
     }
 
-    GroupBox {
-        title: " Playback Mode:"
-        width: parent.width
-        y: 20
-        background: Rectangle { color: "transparent" }
+    Flickable {
+        ScrollBar.vertical: ScrollBar { }
+        id: listView
+        anchors.fill: parent
+        clip: true
+        contentHeight: groupbox.height + 20
 
-        Column {
-            id: column
-            anchors.fill: parent
+        GroupBox {
+            id: groupbox
+            title: " SETTINGS"
+            width: parent.width
+            y: 20
+            background: Rectangle { color: "transparent" }
 
-            AbstractCheckBox {
-                id: cbLoop
-                checked: true
-                text: qsTr("Loop")
-                onClicked: mplayer.setPlaybackMode(3)
-            }
+            Column {
+                id: column
+                anchors.fill: parent
 
-            AbstractCheckBox {
-                id: cbSequential
-                text: qsTr("Sequential")
-                onClicked: mplayer.setPlaybackMode(2)
-            }
+                Text { text: qsTr(" Playback Mode:") }
 
-            AbstractCheckBox {
-                id: cbRepeat
-                text: qsTr("Repeat")
-                onClicked: mplayer.setPlaybackMode(1)
-            }
+                AbstractCheckBox {
+                    id: cbLoop
+                    checked: true
+                    text: qsTr("Loop")
+                    onClicked: mplayer.setPlaybackMode(3)
+                    ButtonGroup.group: group
+                }
 
-            AbstractCheckBox {
-                id: cbRadom
-                text: qsTr("Radom")
-                onClicked: mplayer.setPlaybackMode(4)
+                AbstractCheckBox {
+                    id: cbSequential
+                    text: qsTr("Sequential")
+                    onClicked: mplayer.setPlaybackMode(2)
+                    ButtonGroup.group: group
+                }
+
+                AbstractCheckBox {
+                    id: cbRepeat
+                    text: qsTr("Repeat")
+                    onClicked: mplayer.setPlaybackMode(1)
+                    ButtonGroup.group: group
+                }
+
+                AbstractCheckBox {
+                    id: cbRadom
+                    text: qsTr("Radom")
+                    onClicked: mplayer.setPlaybackMode(4)
+                    ButtonGroup.group: group
+                }
+
+                AbstractCheckBox {
+                    text: qsTr("Radom")
+                    onClicked: mplayer.setPlaybackMode(4)
+                    ButtonGroup.group: group
+                }
+
+                AbstractCheckBox {
+                    text: qsTr("Radom")
+                    onClicked: mplayer.setPlaybackMode(4)
+                    ButtonGroup.group: group
+                }
+
+                AbstractCheckBox {
+                    text: qsTr("Radom")
+                    onClicked: mplayer.setPlaybackMode(4)
+                    ButtonGroup.group: group
+                }
+
+                //Text { text: qsTr(" AAA") }
+
+    //            AbstractCheckBox {
+    //                id: cbVisualisation
+    //                text: qsTr("Visualisation")
+    //                tristate: true
+    //            }
             }
         }
     }

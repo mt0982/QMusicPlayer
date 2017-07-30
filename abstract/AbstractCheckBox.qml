@@ -6,8 +6,11 @@ CheckBox {
     id: control
 
     Component.onCompleted: {
-        checkBox.implicitWidth = parent.implicitWidth * 0.46
-        checkBox.implicitHeight = parent.implicitWidth * 0.46
+        var y = ((parent.implicitHeight * 0.3) % 2) ? 1 : 0;
+        var x = ((parent.implicitWidth * 0.3) % 2) ? 1 : 0;
+
+        checkBox.implicitWidth = parent.implicitHeight * 0.3 + x
+        checkBox.implicitHeight = parent.implicitHeight * 0.3 + y
     }
 
     indicator: Rectangle {
