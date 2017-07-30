@@ -9,9 +9,8 @@ Item {
         anchors.bottom: parent.bottom
         legend.visible: false
         backgroundColor: "transparent"
-        //height: parent.height * 0.1
-        //width: root.width
-        anchors.fill: parent
+        height: parent.height * 0.1
+        width: root.width
         antialiasing: true
         margins {
             left: 0
