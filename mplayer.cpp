@@ -112,7 +112,8 @@ void MPlayer::setPlaybackMode(const int value)
 
 void MPlayer::processBuffer(QAudioBuffer buffer)
 {
-    qDebug() << (float)*buffer.data<quint16>() / UINT16_MAX;
+    float peak = (float)*buffer.data<quint16>() / UINT16_MAX;
+    sendPeakLevel(peak);
 }
 
 void MPlayer::durationChanged(qint64 duration)

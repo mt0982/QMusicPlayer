@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-QT += qml quick quickcontrols2 multimedia multimediawidgets
+QT += qml quick quickcontrols2 multimedia multimediawidgets charts
 CONFIG += c++11
 
 SOURCES += main.cpp \

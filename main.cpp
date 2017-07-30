@@ -1,12 +1,12 @@
-#include <QGuiApplication>
+#include <QApplication>
 #include <QQmlApplicationEngine>
-#include <QQuickStyle>
 #include <QQmlContext>
+#include <QQuickView>
 #include <mplayer.h>
 
 int main(int argc, char *argv[])
 {
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);                   //QApplication require to correct char work
     app.setOrganizationName("Some Company");
     app.setOrganizationDomain("somecompany.com");
     app.setApplicationName("QMusicPlayer");
@@ -25,3 +25,23 @@ int main(int argc, char *argv[])
 
     return app.exec();
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

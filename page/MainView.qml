@@ -3,6 +3,7 @@ import QtQuick.Window 2.2
 import QtQuick.Controls 2.0
 import QtMultimedia 5.6
 import QtQuick.Layouts 1.3
+import QtCharts 2.0
 import "../component"
 import "../page"
 
@@ -27,6 +28,11 @@ Item {
         onSendStatus: {
             pageMusic.btnIcon.source = status
         }
+        onSendPeakLevel: {
+            //console.log(peak)
+            if (series.count > 20) series.remove(0);
+            series.append(peak)
+        }
     }
 
     Image {
@@ -40,6 +46,41 @@ Item {
         anchors.topMargin: 0
         source: "qrc:/background/background0"
         fillMode: Image.PreserveAspectCrop
+
+        ChartView {
+            anchors.bottom: parent.bottom
+            legend.visible: false
+            backgroundColor: "transparent"
+            height: parent.height * 0.2
+            width: root.width
+            margins {
+                left: 0
+                right: 0
+                bottom: 0
+            }
+
+            BarSeries {
+
+                axisX: ValueAxis {
+                    min: -0.5
+                    max: 20.5
+                    visible: false
+                }
+
+                axisY: ValueAxis {
+                    min: 0
+                    max: 1
+                    visible: false
+                }
+
+                BarSet {
+                    id: series
+                    borderWidth: 0.1
+                    borderColor: "red"
+                    color: Qt.rgba(180, 180, 180, 0.5)
+                }
+            }
+        }
 
         Rectangle {
             width: parent.width
