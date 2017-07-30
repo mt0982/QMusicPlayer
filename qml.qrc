@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>icon/backward.png</file>
+        <file>icon/forward.png</file>
+        <file>icon/pause.png</file>
+        <file>icon/play.png</file>
+        <file>icon/music_checked.png</file>
+        <file>icon/music_unchecked.png</file>
+        <file>component/TabBarOption.qml</file>
+        <file>abstract/AbstractTabBarButton.qml</file>
+        <file>icon/playlist_checked.png</file>
+        <file>icon/playlist_unchecked.png</file>
+        <file>page/PageMusic.qml</file>
+        <file>page/PagePlaylist.qml</file>
+        <file>icon/radio_checked.png</file>
+        <file>icon/radio_unchecked.png</file>
+        <file>icon/settings.png</file>
+        <file>page/PageRadio.qml</file>
+        <file>page/MainView.qml</file>
+        <file>page/PageSetting.qml</file>
+        <file>abstract/AbstractCheckBox.qml</file>
+        <file>background/background0</file>
+        <file>component/VisualisationSeries.qml</file>
+    </qresource>
+</RCC>
