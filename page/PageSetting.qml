@@ -13,6 +13,8 @@ Item {
         else if (settings.b === true) mplayer.setPlaybackMode(2)
         else if (settings.c === true) mplayer.setPlaybackMode(1)
         else if (settings.d === true) mplayer.setPlaybackMode(4)
+        if (settings.e === true) visualisation.visible = true;
+        else visualisation.visible = false;
     }
 
     Settings {
@@ -21,6 +23,7 @@ Item {
         property alias b: cbSequential.checked
         property alias c: cbRepeat.checked
         property alias d: cbRadom.checked
+        property alias e: cbVisualisation.checked
     }
 
     ButtonGroup {
@@ -46,7 +49,7 @@ Item {
                 id: column
                 anchors.fill: parent
 
-                Text { text: qsTr(" Playback Mode:") }
+                Text { text: qsTr("Playback Mode:"); anchors.horizontalCenter: parent.horizontalCenter }
 
                 AbstractCheckBox {
                     id: cbLoop
@@ -77,31 +80,18 @@ Item {
                     ButtonGroup.group: group
                 }
 
-                AbstractCheckBox {
-                    text: qsTr("Radom")
-                    onClicked: mplayer.setPlaybackMode(4)
-                    ButtonGroup.group: group
-                }
+                Text { text: qsTr("Enable | Disable:"); anchors.horizontalCenter: parent.horizontalCenter }
 
                 AbstractCheckBox {
-                    text: qsTr("Radom")
-                    onClicked: mplayer.setPlaybackMode(4)
-                    ButtonGroup.group: group
+                    id: cbVisualisation
+                    text: qsTr("Visualisation")
+                    tristate: true
+
+                    onCheckedChanged: {
+                        if (checked) visualisation.visible = true;
+                        else visualisation.visible = false;
+                    }
                 }
-
-                AbstractCheckBox {
-                    text: qsTr("Radom")
-                    onClicked: mplayer.setPlaybackMode(4)
-                    ButtonGroup.group: group
-                }
-
-                //Text { text: qsTr(" AAA") }
-
-    //            AbstractCheckBox {
-    //                id: cbVisualisation
-    //                text: qsTr("Visualisation")
-    //                tristate: true
-    //            }
             }
         }
     }

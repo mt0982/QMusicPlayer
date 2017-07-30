@@ -6,7 +6,7 @@ CheckBox {
     id: control
 
     Component.onCompleted: {
-        var offset = ((root.height * 0.3) % 2) ? 1 : 0;
+        var offset = ((root.height * 0.1) % 2) ? 1 : 0;
 
         checkBox.implicitWidth = root.height * 0.1 + offset
         checkBox.implicitHeight = root.height * 0.1 + offset
